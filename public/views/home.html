@@ -1,5 +1,16 @@
-<div class="jumbotron text-center">
+<div class="text-center">
     <h1>Just do</h1>
 
-    <p>{{ tagline }}</p>
+    <div id="todos-container" ng-repeat="todo in todos">
+        <div class="todo">
+            <h1 ng-model="todo.title">{{ todo.title }}</h1>
+            <input ng-model="todo.completed" type="checkbox" ng-change="toggleCompleted(todo)" ng-checked="{{ todo.completed }}"></input>
+        </div>
+    </div>
+
+    <h3>Add todo</h3>
+    <form ng-submit="addTodo()">
+        <input type="text" ng-model="new.todo.title" />
+    </form>
+
 </div>

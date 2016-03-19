@@ -1,4 +1,4 @@
-angular.module('TodoService', []).factory('Todo', ['$http', function($http) {
+angular.module('TodoService', []).factory('Todos', ['$http', function($http) {
 
     return {
         get: function() {
@@ -7,6 +7,10 @@ angular.module('TodoService', []).factory('Todo', ['$http', function($http) {
 
         create: function(data) {
             return $http.post('/api/todos', data);
+        },
+
+        update: function(id, data) {
+            return $http.put('/api/todos/' + id, data);
         },
 
         delete: function(id) {

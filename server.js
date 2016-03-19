@@ -3,6 +3,7 @@ var express        = require('express');
 var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
+var mongoose       = require('mongoose');
 
 // Configs
 var db = require('./config/db');
@@ -11,7 +12,7 @@ var db = require('./config/db');
 var port = process.env.PORT || 3000; 
 
 // Connect to DB
-// mongoose.connect(db.url);
+mongoose.connect(db.url);
 
 // Setting up Express
 app.use(bodyParser.json()); 

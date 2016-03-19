@@ -1,5 +1,19 @@
-angular.module('MainCtrl', []).controller('MainController', function($scope) {
+angular.module('MainCtrl', ['TodoService']).controller('MainController', function($scope, Todos) {
 
-    $scope.tagline = '[Insert cool tagline]';   
+    Todos.get().success(function(todos) {
+        $scope.todos = todos;
+    });
+
+    $scope.toggleCompleted = function(todo) {
+        Todos.update(todo._id, todo);
+    }
+
+    $scope.addTodo = function() {
+
+        Todos.create({'title': $scope.new.todo.title}).success(function(todo) {
+            $scope.todos.push(todo);
+            $scope.new.todo.title = "";
+        });
+    }
 
 });

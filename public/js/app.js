@@ -1,1 +1,1 @@
-angular.module('justDoApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'TodoService']);
+angular.module('justDoApp', ['ngRoute', 'appRoutes', 'TodoService', 'MainCtrl']);
