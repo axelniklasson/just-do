@@ -1,16 +1,20 @@
 <div class="text-center">
-    <h1>Just do</h1>
+    <h1>Just do!</h1>
 
-    <div id="todos-container" ng-repeat="todo in todos">
+    <div id="TodosContainer" ng-repeat="todo in todos | orderBy:'completed'">
         <div class="todo">
-            <h1 ng-model="todo.title">{{ todo.title }}</h1>
-            <input ng-model="todo.completed" type="checkbox" ng-change="toggleCompleted(todo)" ng-checked="{{ todo.completed }}"></input>
+            <span id="todoTitle" ng-model="todo.title">{{ todo.title }}</span>
+            <button id="todoDelete" ng-model="todo.delete" ng-click="deleteTodo(todo)">X</button>
+            <input id="todoCompleted" ng-model="todo.completed" type="checkbox" ng-change="toggleCompleted(todo)" ng-checked="{{ todo.completed }}"></input>
         </div>
     </div>
 
-    <h3>Add todo</h3>
-    <form ng-submit="addTodo()">
-        <input type="text" ng-model="new.todo.title" />
-    </form>
+    <div id="addTodoContainer" class="form-group text-left">
+        <h3>Add todo</h3>
+        <form ng-submit="addTodo()">
+            <input placeholder="Title" type="text" ng-model="new.todo.title" />
+            <button type="submit">Add</button>
+        </form>
+    </div>
 
 </div>

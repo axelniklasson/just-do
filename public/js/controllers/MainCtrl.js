@@ -9,10 +9,15 @@ angular.module('MainCtrl', ['TodoService']).controller('MainController', functio
     }
 
     $scope.addTodo = function() {
-
         Todos.create({'title': $scope.new.todo.title}).success(function(todo) {
             $scope.todos.push(todo);
             $scope.new.todo.title = "";
+        });
+    }
+
+    $scope.deleteTodo = function(todo) {
+        Todos.delete(todo._id).success(function() {
+            $scope.todos.splice($scope.todos.indexOf(todo), 1);
         });
     }
 

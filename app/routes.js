@@ -26,9 +26,17 @@ module.exports = function(app) {
     });
 
     app.put('/api/todos/:id', function(req, res) {
+        var ID = req.params.id;
         var todo = req.body;
-        Todo.update({'_id': todo._id}, todo, {}, function(err, numAffected) {
+        Todo.update({'_id': ID}, todo, {}, function(err, numAffected) {
             res.json(todo);
+        });
+    });
+
+    app.delete('/api/todos/:id', function(req, res) {
+        var ID = req.params.id;
+        Todo.remove({'_id': ID}, function() {
+            res.send(200);
         });
     });
 
