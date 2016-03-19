@@ -1,0 +1,11 @@
+{
+    "name": "just-do",
+    "description": "TODO application",
+    "dependencies": {
+        "bootstrap": "latest",
+        "font-awesome": "latest",
+        "animate.css": "latest",
+        "angular": "latest",
+        "angular-route": "latest"
+    }
+}
