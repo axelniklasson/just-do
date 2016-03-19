@@ -8,10 +8,10 @@ var methodOverride = require('method-override');
 var db = require('./config/db');
 
 // Port
-var port = process.env.PORT || 8080; 
+var port = process.env.PORT || 3000; 
 
 // Connect to DB
-mongoose.connect(db.url);
+// mongoose.connect(db.url);
 
 // Setting up Express
 app.use(bodyParser.json()); 
